@@ -1,13 +1,17 @@
 package mx.itson.garra2
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import mx.itson.garra.entities.Animal
+import mx.itson.garra2.R.id.btn_list
+import android.widget.Button as Button
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,8 +21,33 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        Animal().save(this, "Leon")
-        Animal().get(this)
+
+
+        val btnNew = findViewById<Button>(R.id.btn_new)
+        btnNew.setOnClickListener(this)
+
+        val btnList = findViewById<Button>(R.id.btn_list)
+        btnList.setOnClickListener(this)
+
+
+       // Animal().save(this, "Gato")
+       // Animal().get(this)
+
+
 
     }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.btn_new -> {
+                val intentFormAnimal = Intent(this, AnimalFormActivity::class.java)
+               startActivity(intentFormAnimal)
+            }
+            R.id.btn_list ->{
+                val intentListAnimal = Intent(this, AnimalListActivity::class.java)
+                startActivity(intentListAnimal)
+            }
+        }
+    }
+
 }

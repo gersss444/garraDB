@@ -6,19 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    tools:context=".MainActivity">
+    android:padding="30dp"
+    tools:context=".AnimalFormActivity">
 
-    <Button
-        android:id="@+id/btn_new"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_name"/>
+
+    <EditText
+        android:id="@+id/txt_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_new"/>
+        android:inputType="text"/>
 
     <Button
-        android:id="@+id/btn_list"
+        android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/text_list"/>
+        android:text="@string/text_save"/>
 
 </LinearLayout>
